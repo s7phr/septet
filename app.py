@@ -69,7 +69,7 @@ class App:
         def signin():
             return render_template("login.html")
 
-        @self.app.route("/login", methods=["GET", "POST"])
+        @self.app.route("/login", methods=["POST"])
         def login():
             username = request.json.get("username", None)
             password = request.json.get("password", None)
@@ -97,7 +97,12 @@ class App:
                 user_id, hashed_password = user
                 if bcrypt.checkpw(password.encode("utf-8"), hashed_password):
                     access_token = create_access_token(identity=username)
-                    return jsonify(access_token=access_token), 200
+                    return (
+                        jsonify(
+                            access_token=access_token,
+                        ),
+                        200,
+                    )
                 else:
                     return jsonify({"error": "Invalid password"}), 401
             else:
