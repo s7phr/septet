@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Septet Society | Police Radio</title>
+    <script>
+        function getAuthToken() {
+            return localStorage.getItem('jwtToken');
+        }
+
+        function fetchPoliceRadio() {
+            const authToken = getAuthToken();
+            if (!authToken) {
+                console.error("JWT token not found.");
+                return;
+            }
+
+            fetch("/police/radio", {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${authToken}`
+                }
+            })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Unauthorized access");
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    console.log("Police radio data:", data);
+                    // Handle the fetched data here, e.g., update the UI
+                })
+                .catch(error => {
+                    console.error("Access error:", error);
+                    alert("Unauthorized access");
+                });
+        }
+
+    </script>
+</head>
+
+<body onload="fetchPoliceRadio()">
+    <p>Displaying police radio data here...</p>
+</body>
+
+</html>

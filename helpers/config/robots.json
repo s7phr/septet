@@ -1,0 +1,37 @@
+{
+    "Google_Search_Engine_Robot": {
+        "User-agent": "Googlebot",
+        "Allow": [
+            "/*?lang=",
+            "/hashtag/*?src=",
+            "/search?q=%23",
+            "/i/api/"
+        ]
+    },
+    "FacebookBot": {
+        "User-agent": "FacebookBot",
+        "Disallow": "*"
+    },
+    "facebookexternalhit": {
+        "User-agent": "facebookexternalhit",
+        "Disallow": "*"
+    },
+    "Discordbot": {
+        "User-agent": "Discordbot",
+        "Disallow": "*"
+    },
+    "Bingbot": {
+        "User-agent": "Bingbot",
+        "Disallow": "*"
+    },
+    "Other_Bots": {
+        "User-agent": "*",
+        "Disallow": "/"
+    },
+    "Block_Indexing_Links_Notification_Emails": {
+        "Disallow": "/i/u",
+        "Noindex": "/i/u"
+    },
+    "Crawl_Delay": "1",
+    "Sitemap": "https://septet.us/sitemap.txt"
+}

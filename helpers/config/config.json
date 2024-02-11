@@ -1,0 +1,8 @@
+{
+    "robots": "robots.txt[&]/helpers/config/robots.txt",
+    "crypto": {
+        "ltc": "LcAZzfNdBdoPQLNgUMoCkbsDoRd4R2pvFJ",
+        "btc": "bc1q8t9jqcpzalx403g0xvyc4fhy20c7nsujpexwfp",
+        "eth": "0x72842334aa0802dC97F7156836b890Ce25d482a6"
+    }
+}
