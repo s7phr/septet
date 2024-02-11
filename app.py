@@ -1,4 +1,5 @@
 import random
+import sqlite3
 import string
 from json import dumps, load
 from typing import List, Optional, Tuple, Union
@@ -25,8 +26,6 @@ from flask_jwt_extended import (
 from terminut import log
 
 from routes import *
-
-sqlite3 = None
 
 
 class App:
@@ -202,7 +201,6 @@ class App:
     def run(self):
         return self.app.run(
             host="0.0.0.0",
-            port=8080,
             debug=True,
         )
 
