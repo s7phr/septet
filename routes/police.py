@@ -8,6 +8,7 @@ from flask_jwt_extended import (
 )
 
 police = Blueprint("police", __name__)
+import sqlite3
 
 
 @police.route("/radio")
@@ -15,9 +16,15 @@ def radio():
     return render_template("network.html")
 
 
-@police.route("/radio/home")
+@police.route("/home")
 def home():
-    return render_template("home.html")
+    db = sqlite3.connect("helpers/schemas/users.db")
+    cursor = db.cursor()
+    cursor.execute("SELECT COUNT(*) FROM users")
+    total_users = cursor.fetchone()[0]
+    db.close()
+
+    return render_template("home.html", totalusers=total_users)
 
 
 @police.route("/radio/<int:id>")

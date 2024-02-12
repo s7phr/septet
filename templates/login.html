@@ -100,11 +100,9 @@
                 if (access_token) {
                     localStorage.setItem('access_token', access_token);
 
-                    // Redirect to /police/radio
                     window.location.href = "/police/radio";
                 } else {
                     console.error("Access token not received");
-                    alert("Unauthorized access");
                 }
             })
             .catch(error => {
@@ -143,16 +141,13 @@
                 if (!response.ok) {
                     throw new Error("Unauthorized access");
                 }
-                // Redirect to /police/radio
                 window.location.href = "/police/radio";
             })
             .catch(error => {
                 console.error("Access error:", error);
-                alert("Unauthorized access");
             });
     } else {
         console.error("Access token not found in storage");
-        alert("Unauthorized access");
     }
 
 </script>
