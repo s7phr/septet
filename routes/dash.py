@@ -7,16 +7,16 @@ from flask_jwt_extended import (
     verify_jwt_in_request,
 )
 
-police = Blueprint("police", __name__)
+dash = Blueprint("dash", __name__)
 import sqlite3
 
 
-@police.route("/radio")
+@dash.route("/checkpoint")
 def radio():
     return render_template("network.html")
 
 
-@police.route("/home")
+@dash.route("/home")
 def home():
     db = sqlite3.connect("helpers/schemas/users.db")
     cursor = db.cursor()
@@ -27,5 +27,5 @@ def home():
     return render_template("home.html", totalusers=total_users)
 
 
-@police.route("/radio/<int:id>")
+@dash.route("/radio/<int:id>")
 def radio_id(id: int): ...

@@ -100,7 +100,7 @@
                 if (access_token) {
                     localStorage.setItem('access_token', access_token);
 
-                    window.location.href = "/police/radio";
+                    window.location.href = "/dash/checkpoint";
                 } else {
                     console.error("Access token not received");
                 }
@@ -133,7 +133,7 @@
             'Authorization': `Bearer ${access_token}`,
             'Content-Type': 'application/json'
         };
-        fetch("/police/radio", {
+        fetch("/dash/checkpoint", {
             method: "GET",
             headers: headers
         })
@@ -141,7 +141,7 @@
                 if (!response.ok) {
                     throw new Error("Unauthorized access");
                 }
-                window.location.href = "/police/radio";
+                window.location.href = "/dash/checkpoint";
             })
             .catch(error => {
                 console.error("Access error:", error);

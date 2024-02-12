@@ -1,3 +1,3 @@
 from .checkpoint import *
+from .dash import *
 from .invoice import *
-from .police import *
